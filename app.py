@@ -27,44 +27,49 @@ CATEGORIES = {
     }
 }
 
-# Design placeholders (no specific titles yet)
-DESIGNS = [
+# Design collections (unnamed as requested)
+COLLECTIONS = [
     {
-        'id': 'design1',
-        'placeholder': True,
-        'theme': 'skyline'
+        'id': 'collection1',
+        'name': 'Collection 1',
+        'description': 'Urban skyline designs capturing Seattle\'s architectural beauty',
+        'theme': 'urban',
+        'gradient': 'urban-gradient'
     },
     {
-        'id': 'design2', 
-        'placeholder': True,
-        'theme': 'nature'
+        'id': 'collection2',
+        'name': 'Collection 2', 
+        'description': 'Pacific Northwest nature and mountain landscapes',
+        'theme': 'nature',
+        'gradient': 'nature-gradient'
     },
     {
-        'id': 'design3',
-        'placeholder': True,
-        'theme': 'culture'
+        'id': 'collection3',
+        'name': 'Collection 3',
+        'description': 'Seattle culture, coffee, and local lifestyle',
+        'theme': 'culture',
+        'gradient': 'culture-gradient'
     }
 ]
 
 @app.route('/')
 def index():
-    return render_template('index.html', designs=DESIGNS, categories=CATEGORIES)
+    return render_template('index.html', collections=COLLECTIONS, categories=CATEGORIES)
 
-@app.route('/api/designs')
-def get_designs():
-    return jsonify(DESIGNS)
+@app.route('/api/collections')
+def get_collections():
+    return jsonify(COLLECTIONS)
 
 @app.route('/api/categories')
 def get_categories():
     return jsonify(CATEGORIES)
 
-@app.route('/design/<design_id>')
-def design_products(design_id):
-    design = next((d for d in DESIGNS if d['id'] == design_id), None)
-    if not design:
-        return "Design not found", 404
-    
-    return render_template('products.html', design=design, categories=CATEGORIES)
+@app.route('/api/collection/<collection_id>')
+def get_collection(collection_id):
+    collection = next((c for c in COLLECTIONS if c['id'] == collection_id), None)
+    if not collection:
+        return jsonify({'error': 'Collection not found'}), 404
+    return jsonify(collection)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
