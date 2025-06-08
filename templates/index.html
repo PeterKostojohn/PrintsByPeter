@@ -6,7 +6,952 @@
     <title>PrintsByPeter - Premium Seattle-Inspired Apparel</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* ===== RESET & VARIABLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Colors */
+            --primary-blue: #4285f4;
+            --primary-blue-light: #5a95f5;
+            --primary-blue-dark: #3367d6;
+            --secondary-blue: #e8f0fe;
+            --text-dark: #1a1a1a;
+            --text-medium: #5f6368;
+            --text-light: #9aa0a6;
+            --background: #ffffff;
+            --background-light: #f8f9fa;
+            --background-section: #f8faff;
+            --border-light: #e8eaed;
+            --success-green: #34a853;
+            --accent-purple: #673ab7;
+            
+            /* Typography */
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-weight-light: 300;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-weight-extrabold: 800;
+            
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 1.5rem;
+            --space-lg: 2rem;
+            --space-xl: 3rem;
+            --space-2xl: 4rem;
+            --space-3xl: 6rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15), 0 10px 10px rgba(0, 0, 0, 0.04);
+            
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            --radius-full: 50px;
+            
+            /* Transitions */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* ===== BASE STYLES ===== */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        /* ===== NAVIGATION ===== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-md) var(--space-lg);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-dark);
+        }
+
+        .brand-tagline {
+            font-size: 0.75rem;
+            color: var(--primary-blue);
+            font-weight: var(--font-weight-medium);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--space-xl);
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: var(--font-weight-medium);
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+            padding: var(--space-xs) 0;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-blue);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .cta-button:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--background) 0%, var(--background-section) 100%);
+            padding-top: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--secondary-blue);
+            color: var(--primary-blue);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-md);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: var(--font-weight-extrabold);
+            line-height: 1.1;
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .text-highlight {
+            color: var(--primary-blue);
+            position: relative;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: var(--space-xl);
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-md);
+            font-weight: var(--font-weight-semibold);
+            font-size: 1rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary-blue);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--space-xl);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: var(--font-weight-extrabold);
+            color: var(--text-dark);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            font-weight: var(--font-weight-medium);
+            margin-top: var(--space-xs);
+        }
+
+        .hero-visual {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-mockup {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .mockup-item {
+            position: absolute;
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-md);
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .mockup-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .mockup-hoodie {
+            top: 20%;
+            left: 10%;
+            width: 140px;
+            height: 120px;
+        }
+
+        .mockup-hat {
+            top: 10%;
+            right: 20%;
+            width: 130px;
+            height: 110px;
+        }
+
+        .mockup-mug {
+            bottom: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 135px;
+            height: 115px;
+        }
+
+        .mockup-item i {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+
+        .mockup-item span {
+            font-size: 0.875rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-dark);
+            text-align: center;
+        }
+
+        .design-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+        }
+
+        .element {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .element-1 {
+            width: 80px;
+            height: 80px;
+            top: 30%;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .element-2 {
+            width: 60px;
+            height: 60px;
+            bottom: 30%;
+            right: 40%;
+            animation-delay: 2s;
+        }
+
+        .element-3 {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* ===== SECTIONS ===== */
+        .collections, .products, .about {
+            padding: var(--space-3xl) 0;
+        }
+
+        .collections {
+            background: var(--background);
+        }
+
+        .products {
+            background: var(--background-section);
+        }
+
+        .about {
+            background: var(--background);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* ===== COLLECTIONS SECTION ===== */
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .collection-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .card-image {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .urban-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .nature-gradient {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .culture-gradient {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .collection-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .card-icons {
+            display: flex;
+            gap: var(--space-md);
+            color: white;
+        }
+
+        .card-icons i {
+            font-size: 2rem;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .card-content {
+            padding: var(--space-lg);
+        }
+
+        .card-content h3 {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .card-content p {
+            color: var(--text-medium);
+            margin-bottom: var(--space-md);
+            line-height: 1.5;
+            font-size: 0.9rem;
+        }
+
+        .card-button {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-md);
+            font-weight: var(--font-weight-semibold);
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .card-button:hover {
+            background: var(--primary-blue-dark);
+            transform: translateY(-1px);
+        }
+
+        /* ===== PRODUCTS SECTION ===== */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .product-category {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .product-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            color: white;
+            font-size: 1.75rem;
+        }
+
+        .product-category h3 {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+        }
+
+        .product-list {
+            list-style: none;
+            margin-bottom: var(--space-md);
+            text-align: left;
+        }
+
+        .product-list li {
+            padding: var(--space-xs) 0;
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: var(--space-md);
+        }
+
+        .product-list li::before {
+            content: '•';
+            color: var(--primary-blue);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .category-desc {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: var(--font-weight-extrabold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
+        }
+
+        .lead-text {
+            font-size: 1.125rem;
+            color: var(--text-medium);
+            margin-bottom: var(--space-md);
+            font-weight: var(--font-weight-medium);
+            line-height: 1.6;
+        }
+
+        .about-text p {
+            color: var(--text-medium);
+            margin-bottom: var(--space-xl);
+            line-height: 1.6;
+        }
+
+        .features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .feature {
+            display: flex;
+            gap: var(--space-md);
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .feature-text h4 {
+            font-size: 1rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .feature-text p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .about-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .visual-placeholder {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: var(--shadow-xl);
+        }
+
+        .visual-placeholder i {
+            font-size: 4rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .visual-placeholder span {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* ===== MODALS ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            margin: 5% auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-xl);
+            animation: slideIn 0.3s ease;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-30px) scale(0.95); opacity: 0; }
+            to { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        .modal-header {
+            padding: var(--space-lg);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-dark);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-medium);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .close-modal:hover {
+            background: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        .modal-body {
+            padding: var(--space-lg);
+        }
+
+        .selected-collection {
+            background: var(--background-light);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .modal-categories, .modal-subcategories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-md);
+        }
+
+        .modal-category, .modal-subcategory {
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .modal-category:hover, .modal-subcategory:hover {
+            border-color: var(--primary-blue);
+            background: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-sm);
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .modal-category h4, .modal-subcategory h4 {
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .modal-category p {
+            color: var(--text-medium);
+            font-size: 0.875rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up:nth-child(1) { transition-delay: 0ms; }
+        .fade-up:nth-child(2) { transition-delay: 100ms; }
+        .fade-up:nth-child(3) { transition-delay: 200ms; }
+        .fade-up:nth-child(4) { transition-delay: 300ms; }
+        .fade-up:nth-child(5) { transition-delay: 400ms; }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+                text-align: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .collections-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+                text-align: center;
+            }
+            
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: var(--space-md);
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+            
+            .features {
+                text-align: left;
+            }
+            
+            .visual-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -94,56 +1039,34 @@
                 <p class="section-subtitle">Three unique design styles, each capturing a different aspect of Seattle's character</p>
             </div>
             <div class="collections-grid">
-                <div class="collection-card fade-up" data-design="design1">
-                    <div class="card-image urban-gradient">
+                {% for collection in collections %}
+                <div class="collection-card fade-up" data-collection="{{ collection.id }}">
+                    <div class="card-image {{ collection.gradient }}">
                         <div class="card-overlay">
                             <div class="card-icons">
+                                {% if collection.theme == 'urban' %}
                                 <i class="fas fa-building"></i>
                                 <i class="fas fa-broadcast-tower"></i>
                                 <i class="fas fa-city"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Urban Collection</h3>
-                        <p>Modern cityscape designs inspired by Seattle's iconic skyline</p>
-                        <button class="card-button">Select Collection</button>
-                    </div>
-                </div>
-
-                <div class="collection-card fade-up" data-design="design2">
-                    <div class="card-image nature-gradient">
-                        <div class="card-overlay">
-                            <div class="card-icons">
+                                {% elif collection.theme == 'nature' %}
                                 <i class="fas fa-mountain"></i>
                                 <i class="fas fa-tree"></i>
                                 <i class="fas fa-water"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3>Nature Collection</h3>
-                        <p>Pacific Northwest wilderness and natural beauty</p>
-                        <button class="card-button">Select Collection</button>
-                    </div>
-                </div>
-
-                <div class="collection-card fade-up" data-design="design3">
-                    <div class="card-image culture-gradient">
-                        <div class="card-overlay">
-                            <div class="card-icons">
+                                {% else %}
                                 <i class="fas fa-coffee"></i>
                                 <i class="fas fa-music"></i>
                                 <i class="fas fa-palette"></i>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
                     <div class="card-content">
-                        <h3>Culture Collection</h3>
-                        <p>Local arts, coffee culture, and Seattle lifestyle</p>
+                        <h3>{{ collection.name }}</h3>
+                        <p>{{ collection.description }}</p>
                         <button class="card-button">Select Collection</button>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -185,7 +1108,7 @@
 
                 <div class="product-category fade-up">
                     <div class="category-icon">
-                        <i class="fas fa-vest"></i>
+                        <i class="fas fa-tshirt"></i>
                     </div>
                     <h3>Shirts</h3>
                     <ul class="product-list">
@@ -267,16 +1190,16 @@
         </div>
     </section>
 
-    <!-- Modal for Collection Selection -->
-    <div id="collection-modal" class="modal">
+    <!-- Modal for Category Selection -->
+    <div id="category-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="modal-title">Choose Your Product Category</h2>
+                <h2 id="category-modal-title">Choose Your Product Category</h2>
                 <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="selected-collection" id="selected-collection">
-                    <!-- Collection preview will be inserted here -->
+                <div class="selected-collection" id="selected-collection-info">
+                    <!-- Collection info will be inserted here -->
                 </div>
                 <div class="modal-categories" id="modal-categories">
                     <!-- Categories will be populated by JavaScript -->
@@ -289,12 +1212,12 @@
     <div id="subcategory-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 id="subcategory-title">Choose Your Product</h2>
-                <button class="close-subcategory-modal">&times;</button>
+                <h2 id="subcategory-modal-title">Choose Your Product</h2>
+                <button class="close-modal">&times;</button>
             </div>
             <div class="modal-body">
-                <div class="selection-info" id="selection-info">
-                    <!-- Selection info will be inserted here -->
+                <div class="selected-collection" id="selection-summary">
+                    <!-- Selection summary will be inserted here -->
                 </div>
                 <div class="modal-subcategories" id="modal-subcategories">
                     <!-- Subcategories will be populated by JavaScript -->
@@ -303,10 +1226,141 @@
         </div>
     </div>
 
-    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-    
     <script>
-        // Add scroll function for buttons
+        // ===== GLOBAL VARIABLES =====
+        let selectedCollection = null;
+        let selectedCategory = null;
+
+        // Categories and subcategories data
+        const CATEGORIES = {
+            'sweatshirts': {
+                'name': 'Sweatshirts',
+                'icon': 'fas fa-tshirt',
+                'subcategories': [
+                    { id: 'hoodies', name: 'Premium Hoodies', icon: 'fas fa-tshirt' },
+                    { id: 'crewnecks', name: 'Classic Crewnecks', icon: 'fas fa-tshirt' }
+                ]
+            },
+            'hats': {
+                'name': 'Hats',
+                'icon': 'fas fa-hat-cowboy',
+                'subcategories': [
+                    { id: 'mesh-snapback', name: 'Mesh Snapback', icon: 'fas fa-hat-cowboy' },
+                    { id: 'baseball-cap', name: 'Baseball Cap', icon: 'fas fa-hat-cowboy' },
+                    { id: 'flattop', name: 'Flattop', icon: 'fas fa-hat-cowboy' },
+                    { id: 'beanie', name: 'Beanie', icon: 'fas fa-hat-cowboy' },
+                    { id: 'bucket-hat', name: 'Bucket Hat', icon: 'fas fa-hat-cowboy' }
+                ]
+            },
+            'shirts': {
+                'name': 'Shirts',
+                'icon': 'fas fa-tshirt',
+                'subcategories': [
+                    { id: 'tanktop', name: 'Tank Top', icon: 'fas fa-tshirt' },
+                    { id: 't-shirts', name: 'T-Shirts', icon: 'fas fa-tshirt' }
+                ]
+            },
+            'accessories': {
+                'name': 'Accessories',
+                'icon': 'fas fa-shopping-bag',
+                'subcategories': [
+                    { id: 'mugs', name: 'Custom Mugs', icon: 'fas fa-mug-hot' },
+                    { id: 'phone-cases', name: 'Phone Cases', icon: 'fas fa-mobile-alt' },
+                    { id: 'blankets', name: 'Cozy Blankets', icon: 'fas fa-bed' },
+                    { id: 'tote-bag', name: 'Tote Bags', icon: 'fas fa-shopping-bag' },
+                    { id: 'mousepads', name: 'Mouse Pads', icon: 'fas fa-mouse' }
+                ]
+            }
+        };
+
+        const COLLECTIONS = {
+            'collection1': {
+                name: 'Collection 1',
+                description: 'Urban skyline designs capturing Seattle\'s architectural beauty',
+                theme: 'Urban Skylines'
+            },
+            'collection2': {
+                name: 'Collection 2',
+                description: 'Pacific Northwest nature and mountain landscapes',
+                theme: 'Nature & Mountains'
+            },
+            'collection3': {
+                name: 'Collection 3',
+                description: 'Seattle culture, coffee, and local lifestyle',
+                theme: 'Culture & Coffee'
+            }
+        };
+
+        // DOM Elements
+        const navbar = document.querySelector('.navbar');
+        const collectionCards = document.querySelectorAll('.collection-card');
+        const categoryModal = document.getElementById('category-modal');
+        const subcategoryModal = document.getElementById('subcategory-modal');
+        const closeModalBtns = document.querySelectorAll('.close-modal');
+
+        // ===== INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeScrollAnimations();
+            initializeNavigation();
+            initializeCollectionCards();
+            initializeModals();
+            initializeSmoothScrolling();
+        });
+
+        // ===== SCROLL ANIMATIONS =====
+        function initializeScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all fade-up elements
+            document.querySelectorAll('.fade-up').forEach(el => {
+                observer.observe(el);
+            });
+        }
+
+        // ===== NAVIGATION =====
+        function initializeNavigation() {
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+        }
+
+        // ===== SMOOTH SCROLLING =====
+        function initializeSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 100;
+                        const elementPosition = target.offsetTop;
+                        const offsetPosition = elementPosition - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+        // Scroll function for buttons
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -320,7 +1374,179 @@
                 });
             }
         }
-        
+
+        // ===== COLLECTION CARDS =====
+        function initializeCollectionCards() {
+            collectionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const collectionId = this.dataset.collection;
+                    selectedCollection = collectionId;
+                    openCategoryModal(collectionId);
+                });
+            });
+        }
+
+        function openCategoryModal(collectionId) {
+            const collection = COLLECTIONS[collectionId];
+            
+            // Update modal title
+            document.getElementById('category-modal-title').textContent = `${collection.name} - Choose Category`;
+            
+            // Render collection preview
+            renderCollectionPreview(collectionId);
+            
+            // Render categories
+            renderModalCategories();
+            
+            // Show modal
+            categoryModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function renderCollectionPreview(collectionId) {
+            const collection = COLLECTIONS[collectionId];
+            const previewContainer = document.getElementById('selected-collection-info');
+            
+            previewContainer.innerHTML = `
+                <h3>${collection.name}</h3>
+                <p><strong>${collection.theme}</strong></p>
+                <p>${collection.description}</p>
+            `;
+        }
+
+        function renderModalCategories() {
+            const categoriesContainer = document.getElementById('modal-categories');
+            
+            categoriesContainer.innerHTML = Object.entries(CATEGORIES).map(([categoryId, categoryData]) => `
+                <div class="modal-category" data-category="${categoryId}">
+                    <div class="modal-icon">
+                        <i class="${categoryData.icon}"></i>
+                    </div>
+                    <h4>${categoryData.name}</h4>
+                    <p>${categoryData.subcategories.length} items available</p>
+                </div>
+            `).join('');
+            
+            // Add click handlers
+            categoriesContainer.querySelectorAll('.modal-category').forEach(category => {
+                category.addEventListener('click', function() {
+                    const categoryId = this.dataset.category;
+                    selectedCategory = categoryId;
+                    closeModal(categoryModal);
+                    setTimeout(() => openSubcategoryModal(categoryId), 300);
+                });
+            });
+        }
+
+        function openSubcategoryModal(categoryId) {
+            const collection = COLLECTIONS[selectedCollection];
+            const category = CATEGORIES[categoryId];
+            
+            // Update modal title
+            document.getElementById('subcategory-modal-title').textContent = `${category.name} - Choose Product`;
+            
+            // Render selection summary
+            renderSelectionSummary(selectedCollection, categoryId);
+            
+            // Render subcategories
+            renderModalSubcategories(categoryId);
+            
+            // Show modal
+            subcategoryModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function renderSelectionSummary(collectionId, categoryId) {
+            const collection = COLLECTIONS[collectionId];
+            const category = CATEGORIES[categoryId];
+            const summaryContainer = document.getElementById('selection-summary');
+            
+            summaryContainer.innerHTML = `
+                <h4>${collection.name} × ${category.name}</h4>
+                <p>Select your specific product from the ${category.name.toLowerCase()} category</p>
+            `;
+        }
+
+        function renderModalSubcategories(categoryId) {
+            const category = CATEGORIES[categoryId];
+            const subcategoriesContainer = document.getElementById('modal-subcategories');
+            
+            subcategoriesContainer.innerHTML = category.subcategories.map(subcategory => `
+                <div class="modal-subcategory" data-subcategory="${subcategory.id}">
+                    <div class="modal-icon">
+                        <i class="${subcategory.icon}"></i>
+                    </div>
+                    <h4>${subcategory.name}</h4>
+                </div>
+            `).join('');
+            
+            // Add click handlers
+            subcategoriesContainer.querySelectorAll('.modal-subcategory').forEach(subcategory => {
+                subcategory.addEventListener('click', function() {
+                    const subcategoryId = this.dataset.subcategory;
+                    const subcategoryData = category.subcategories.find(sub => sub.id === subcategoryId);
+                    handleFinalSelection(selectedCollection, categoryId, subcategoryId, subcategoryData);
+                });
+            });
+        }
+
+        function handleFinalSelection(collectionId, categoryId, subcategoryId, subcategoryData) {
+            const collection = COLLECTIONS[collectionId];
+            const category = CATEGORIES[categoryId];
+            
+            // Close modal
+            closeModal(subcategoryModal);
+            
+            // Show success message
+            setTimeout(() => {
+                alert(`Perfect! You selected:\n\n${collection.name}\n${subcategoryData.name}\n\nComing Soon! We'll notify you when this product is available.`);
+            }, 300);
+            
+            // Log the selection for future processing
+            console.log('Final selection:', {
+                collection: collection,
+                category: category,
+                subcategory: subcategoryData
+            });
+        }
+
+        // ===== MODALS =====
+        function initializeModals() {
+            // Close button handlers
+            closeModalBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    closeModal(categoryModal);
+                    closeModal(subcategoryModal);
+                });
+            });
+            
+            // Click outside to close
+            [categoryModal, subcategoryModal].forEach(modal => {
+                if (modal) {
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === modal) {
+                            closeModal(modal);
+                        }
+                    });
+                }
+            });
+            
+            // Escape key to close
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal(categoryModal);
+                    closeModal(subcategoryModal);
+                }
+            });
+        }
+
+        function closeModal(modal) {
+            if (modal && modal.style.display === 'block') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
         // Trigger animations when page loads
         window.addEventListener('load', function() {
             // Add visible class to hero elements immediately
