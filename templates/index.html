@@ -1,1 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintsByPeter - Seattle Themed Apparel & Accessories</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <i class="fas fa-mountain"></i>
+                <h2>PrintsByPeter</h2>
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-mountain brand-icon"></i>
+                <div class="brand-text">
+                    <h2>PrintsByPeter</h2>
+                    <span class="brand-tagline">Seattle Inspired</span>
+                </div>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#designs" class="nav-link">Designs</a>
+                <a href="#products" class="nav-link">Products</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-actions">
+                <button class="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <h1>
+                    <span class="text-gradient">Seattle-Inspired</span>
+                    <br>Custom Prints
+                </h1>
+                <p class="hero-subtitle">Premium apparel and accessories featuring unique Pacific Northwest designs that capture the spirit of the Emerald City</p>
+                <div class="hero-buttons">
+                    <a href="#designs" class="btn btn-primary">
+                        <span>Explore Designs</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#products" class="btn btn-outline">
+                        <span>Shop All</span>
+                        <i class="fas fa-shopping-bag"></i>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Unique Designs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Product Types</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Seattle Pride</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="floating-elements">
+                    <div class="floating-card card-1">
+                        <i class="fas fa-mountain"></i>
+                        <span>Nature</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fas fa-building"></i>
+                        <span>Skyline</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fas fa-coffee"></i>
+                        <span>Culture</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- Designs Section -->
+    <section id="designs" class="designs-section">
+        <div class="section-bg">
+            <div class="bg-pattern"></div>
+        </div>
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-badge">Our Collection</span>
+                <h2>Choose Your Style</h2>
+                <p>Three unique Seattle-inspired design themes, each capturing a different aspect of our beautiful city's character and culture</p>
+            </div>
+            
+            <div class="designs-grid">
+                <div class="design-card fade-in" data-design="design1" data-delay="0">
+                    <div class="design-visual">
+                        <div class="design-bg skyline-theme">
+                            <div class="design-icons">
+                                <i class="fas fa-building"></i>
+                                <i class="fas fa-broadcast-tower"></i>
+                                <i class="fas fa-city"></i>
+                            </div>
+                        </div>
+                        <div class="design-overlay">
+                            <div class="design-content">
+                                <h3>Design Collection 1</h3>
+                                <p>Urban skyline and architectural elements</p>
+                                <button class="design-btn">
+                                    <span>View Products</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-footer">
+                        <div class="design-info">
+                            <h4>City Theme</h4>
+                            <span>Available on all products</span>
+                        </div>
+                        <div class="design-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card fade-in" data-design="design2" data-delay="200">
+                    <div class="design-visual">
+                        <div class="design-bg nature-theme">
+                            <div class="design-icons">
+                                <i class="fas fa-mountain"></i>
+                                <i class="fas fa-tree"></i>
+                                <i class="fas fa-water"></i>
+                            </div>
+                        </div>
+                        <div class="design-overlay">
+                            <div class="design-content">
+                                <h3>Design Collection 2</h3>
+                                <p>Pacific Northwest natural beauty</p>
+                                <button class="design-btn">
+                                    <span>View Products</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-footer">
+                        <div class="design-info">
+                            <h4>Nature Theme</h4>
+                            <span>Available on all products</span>
+                        </div>
+                        <div class="design-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="design-card fade-in" data-design="design3" data-delay="400">
+                    <div class="design-visual">
+                        <div class="design-bg culture-theme">
+                            <div class="design-icons">
+                                <i class="fas fa-coffee"></i>
+                                <i class="fas fa-music"></i>
+                                <i class="fas fa-palette"></i>
+                            </div>
+                        </div>
+                        <div class="design-overlay">
+                            <div class="design-content">
+                                <h3>Design Collection 3</h3>
+                                <p>Local culture and lifestyle</p>
+                                <button class="design-btn">
+                                    <span>View Products</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="design-footer">
+                        <div class="design-info">
+                            <h4>Culture Theme</h4>
+                            <span>Available on all products</span>
+                        </div>
+                        <div class="design-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-badge">Our Products</span>
+                <h2>Premium Quality Items</h2>
+                <p>From cozy sweatshirts to daily accessories, find the perfect item to showcase your Seattle pride</p>
+            </div>
+            
+            <div class="products-grid">
+                {% for category_id, category_data in categories.items() %}
+                <div class="product-category fade-in" data-delay="{{ loop.index0 * 150 }}">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="{{ category_data.icon }}"></i>
+                        </div>
+                        <h3>{{ category_data.name }}</h3>
+                    </div>
+                    <div class="category-items">
+                        {% for subcategory in category_data.subcategories %}
+                        <div class="product-item">
+                            <span>{{ subcategory|title|replace('-', ' ') }}</span>
+                            <i class="fas fa-chevron-right"></i>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="category-btn" data-category="{{ category_id }}">
+                        <span>Shop {{ category_data.name }}</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <span class="section-badge">About Us</span>
+                    <h2>Celebrating Seattle's Spirit</h2>
+                    <p>We're passionate about capturing the essence of Seattle through thoughtful design and premium quality products. Each piece in our collection tells a story of the Emerald City's unique character.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Original Designs</h4>
+                                <p>Unique Seattle-inspired artwork created with love and attention to detail</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Premium Quality</h4>
+                                <p>High-quality materials and professional printing for lasting durability</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="feature-content">
+                                <h4>Local Pride</h4>
+                                <p>Supporting and celebrating the Pacific Northwest community</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual fade-in">
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-mountain"></i>
+                            <span>Seattle Pride</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content fade-in">
+                <div class="contact-info">
+                    <h2>Get In Touch</h2>
+                    <p>Have questions about our designs or need custom work? We'd love to hear from you!</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Email Us</h4>
+                                <p>hello@printsbypeter.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Call Us</h4>
+                                <p>(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-content">
+                                <h4>Visit Us</h4>
+                                <p>Seattle, WA</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form class="form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary full-width">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="brand-logo">
+                        <i class="fas fa-mountain"></i>
+                        <h3>PrintsByPeter</h3>
+                    </div>
+                    <p>Seattle-inspired designs that celebrate the Pacific Northwest spirit</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="link-group">
+                        <h4>Shop</h4>
+                        <a href="#designs">Designs</a>
+                        <a href="#products">All Products</a>
+                        <a href="#">New Arrivals</a>
+                        <a href="#">Best Sellers</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Support</h4>
+                        <a href="#contact">Contact Us</a>
+                        <a href="#">Size Guide</a>
+                        <a href="#">Shipping Info</a>
+                        <a href="#">Returns</a>
+                    </div>
+                    <div class="link-group">
+                        <h4>Company</h4>
+                        <a href="#about">About Us</a>
+                        <a href="#">Our Story</a>
+                        <a href="#">Careers</a>
+                        <a href="#">Press</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 PrintsByPeter. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Cookies</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Product Modal -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Select Your Design</h2>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="design-selection" id="design-selection">
+                    <!-- Design options will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
