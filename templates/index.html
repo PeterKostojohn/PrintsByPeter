@@ -2629,13 +2629,13 @@
             <div class="products-grid">
                 <div class="product-category fade-up" data-category="sweatshirts" tabindex="0" role="button" aria-label="View sweatshirts gallery">
                     <div class="category-icon" aria-hidden="true">
-                        <i class="fas fa-tshirt"></i>
+                        <i class="fas fa-vest"></i>
                     </div>
                     <h3>Sweatshirts</h3>
                     <div class="product-preview">
                         <img src="static/images/sweatshirts-preview.jpg" alt="Sweatshirts preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="product-placeholder" style="display: none;">
-                            <i class="fas fa-tshirt"></i>
+                            <i class="fas fa-vest"></i>
                         </div>
                     </div>
                     <ul class="product-list">
@@ -2647,13 +2647,13 @@
 
                 <div class="product-category fade-up" data-category="hats" tabindex="0" role="button" aria-label="View hats gallery">
                     <div class="category-icon" aria-hidden="true">
-                        <i class="fas fa-hat-cowboy"></i>
+                        <i class="fas fa-hat-wizard"></i>
                     </div>
                     <h3>Hats</h3>
                     <div class="product-preview">
                         <img src="static/images/hats-preview.jpg" alt="Hats preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="product-placeholder" style="display: none;">
-                            <i class="fas fa-hat-cowboy"></i>
+                            <i class="fas fa-hat-wizard"></i>
                         </div>
                     </div>
                     <ul class="product-list">
@@ -2905,13 +2905,13 @@
         const CATEGORIES = {
             'sweatshirts': {
                 'name': 'Sweatshirts',
-                'icon': 'fas fa-tshirt',
+                'icon': 'fas fa-vest', // Better hoodie-like icon
                 'preview': 'static/images/sweatshirts-preview.jpg',
                 'subcategories': [
                     { 
                         id: 'hoodies', 
                         name: 'Premium Hoodies', 
-                        icon: 'fas fa-tshirt',
+                        icon: 'fas fa-vest', // Hoodie icon
                         preview: 'static/images/hoodie-preview.jpg',
                         images: [
                             'static/images/hoodie1.jpg',
@@ -2924,7 +2924,7 @@
                     { 
                         id: 'crewnecks', 
                         name: 'Classic Crewnecks', 
-                        icon: 'fas fa-tshirt',
+                        icon: 'fas fa-user-tie', // More formal sweater look
                         preview: 'static/images/crewneck-preview.jpg',
                         images: [
                             'static/images/crewneck1.jpg',
@@ -2937,13 +2937,13 @@
             },
             'hats': {
                 'name': 'Hats',
-                'icon': 'fas fa-hat-cowboy',
+                'icon': 'fas fa-hat-wizard', // More distinctive hat icon
                 'preview': 'static/images/hats-preview.jpg',
                 'subcategories': [
                     { 
                         id: 'mesh-snapback', 
                         name: 'Mesh Snapback', 
-                        icon: 'fas fa-hat-cowboy',
+                        icon: 'fas fa-baseball-cap-reverse', // Snapback style
                         preview: 'static/images/snapback-preview.jpg',
                         images: [
                             'static/images/snapback1.jpg',
@@ -2955,7 +2955,7 @@
                     { 
                         id: 'baseball-cap', 
                         name: 'Baseball Cap', 
-                        icon: 'fas fa-hat-cowboy',
+                        icon: 'fas fa-baseball-cap-front', // Forward baseball cap
                         preview: 'static/images/baseball-cap-preview.jpg',
                         images: [
                             'static/images/baseball-cap1.jpg',
@@ -2966,7 +2966,7 @@
                     { 
                         id: 'flattop', 
                         name: 'Flattop', 
-                        icon: 'fas fa-hat-cowboy',
+                        icon: 'fas fa-hat-cowboy', // Flat brim style
                         preview: 'static/images/flattop-preview.jpg',
                         images: [
                             'static/images/flattop1.jpg',
@@ -2977,7 +2977,7 @@
                     { 
                         id: 'beanie', 
                         name: 'Beanie', 
-                        icon: 'fas fa-hat-cowboy',
+                        icon: 'fas fa-hat-winter', // Winter beanie
                         preview: 'static/images/beanie-preview.jpg',
                         images: [
                             'static/images/beanie1.jpg',
@@ -2989,7 +2989,7 @@
                     { 
                         id: 'bucket-hat', 
                         name: 'Bucket Hat', 
-                        icon: 'fas fa-hat-cowboy',
+                        icon: 'fas fa-sun-hat', // Bucket hat style
                         preview: 'static/images/bucket-hat-preview.jpg',
                         images: [
                             'static/images/bucket-hat1.jpg',
@@ -3001,13 +3001,13 @@
             },
             'shirts': {
                 'name': 'Shirts',
-                'icon': 'fas fa-tshirt',
+                'icon': 'fas fa-tshirt', // Keep t-shirt icon for shirts
                 'preview': 'static/images/shirts-preview.jpg',
                 'subcategories': [
                     { 
                         id: 'tanktop', 
                         name: 'Tank Top', 
-                        icon: 'fas fa-tshirt',
+                        icon: 'fas fa-running', // Athletic/tank top icon
                         preview: 'static/images/tank-top-preview.jpg',
                         images: [
                             'static/images/tank-top1.jpg',
@@ -3019,7 +3019,7 @@
                     { 
                         id: 't-shirts', 
                         name: 'T-Shirts', 
-                        icon: 'fas fa-tshirt',
+                        icon: 'fas fa-tshirt', // Classic t-shirt
                         preview: 'static/images/t-shirt-preview.jpg',
                         images: [
                             'static/images/t-shirt1.jpg',
