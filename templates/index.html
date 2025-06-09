@@ -2633,7 +2633,8 @@
                     </div>
                     <h3>Sweatshirts</h3>
                     <div class="product-preview">
-                        <div class="product-placeholder">
+                        <img src="static/images/sweatshirts-preview.jpg" alt="Sweatshirts preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="product-placeholder" style="display: none;">
                             <i class="fas fa-tshirt"></i>
                         </div>
                     </div>
@@ -2650,7 +2651,8 @@
                     </div>
                     <h3>Hats</h3>
                     <div class="product-preview">
-                        <div class="product-placeholder">
+                        <img src="static/images/hats-preview.jpg" alt="Hats preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="product-placeholder" style="display: none;">
                             <i class="fas fa-hat-cowboy"></i>
                         </div>
                     </div>
@@ -2670,7 +2672,8 @@
                     </div>
                     <h3>Shirts</h3>
                     <div class="product-preview">
-                        <div class="product-placeholder">
+                        <img src="static/images/shirts-preview.jpg" alt="Shirts preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="product-placeholder" style="display: none;">
                             <i class="fas fa-tshirt"></i>
                         </div>
                     </div>
@@ -2687,7 +2690,8 @@
                     </div>
                     <h3>Accessories</h3>
                     <div class="product-preview">
-                        <div class="product-placeholder">
+                        <img src="static/images/accessories-preview.jpg" alt="Accessories preview" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="product-placeholder" style="display: none;">
                             <i class="fas fa-shopping-bag"></i>
                         </div>
                     </div>
@@ -2902,26 +2906,31 @@
             'sweatshirts': {
                 'name': 'Sweatshirts',
                 'icon': 'fas fa-tshirt',
+                'preview': 'static/images/sweatshirts-preview.jpg',
                 'subcategories': [
                     { 
                         id: 'hoodies', 
                         name: 'Premium Hoodies', 
                         icon: 'fas fa-tshirt',
+                        preview: 'static/images/hoodie-preview.jpg',
                         images: [
-                            'static/images/sweatshirts/hoodies/hoodie-1.jpg',
-                            'static/images/sweatshirts/hoodies/hoodie-2.jpg',
-                            'static/images/sweatshirts/hoodies/hoodie-3.jpg',
-                            'static/images/sweatshirts/hoodies/hoodie-4.jpg'
+                            'static/images/hoodie1.jpg',
+                            'static/images/hoodie2.jpg',
+                            'static/images/hoodie3.jpg',
+                            'static/images/hoodie4.jpg',
+                            'static/images/hoodie5.jpg'
                         ]
                     },
                     { 
                         id: 'crewnecks', 
                         name: 'Classic Crewnecks', 
                         icon: 'fas fa-tshirt',
+                        preview: 'static/images/crewneck-preview.jpg',
                         images: [
-                            'static/images/sweatshirts/crewnecks/crewneck-1.jpg',
-                            'static/images/sweatshirts/crewnecks/crewneck-2.jpg',
-                            'static/images/sweatshirts/crewnecks/crewneck-3.jpg'
+                            'static/images/crewneck1.jpg',
+                            'static/images/crewneck2.jpg',
+                            'static/images/crewneck3.jpg',
+                            'static/images/crewneck4.jpg'
                         ]
                     }
                 ]
@@ -2929,52 +2938,63 @@
             'hats': {
                 'name': 'Hats',
                 'icon': 'fas fa-hat-cowboy',
+                'preview': 'static/images/hats-preview.jpg',
                 'subcategories': [
                     { 
                         id: 'mesh-snapback', 
                         name: 'Mesh Snapback', 
                         icon: 'fas fa-hat-cowboy',
+                        preview: 'static/images/snapback-preview.jpg',
                         images: [
-                            'static/images/hats/snapbacks/snapback-1.jpg',
-                            'static/images/hats/snapbacks/snapback-2.jpg',
-                            'static/images/hats/snapbacks/snapback-3.jpg'
+                            'static/images/snapback1.jpg',
+                            'static/images/snapback2.jpg',
+                            'static/images/snapback3.jpg',
+                            'static/images/snapback4.jpg'
                         ]
                     },
                     { 
                         id: 'baseball-cap', 
                         name: 'Baseball Cap', 
                         icon: 'fas fa-hat-cowboy',
+                        preview: 'static/images/baseball-cap-preview.jpg',
                         images: [
-                            'static/images/hats/baseball/baseball-1.jpg',
-                            'static/images/hats/baseball/baseball-2.jpg'
+                            'static/images/baseball-cap1.jpg',
+                            'static/images/baseball-cap2.jpg',
+                            'static/images/baseball-cap3.jpg'
                         ]
                     },
                     { 
                         id: 'flattop', 
                         name: 'Flattop', 
                         icon: 'fas fa-hat-cowboy',
+                        preview: 'static/images/flattop-preview.jpg',
                         images: [
-                            'static/images/hats/flattop/flattop-1.jpg',
-                            'static/images/hats/flattop/flattop-2.jpg'
+                            'static/images/flattop1.jpg',
+                            'static/images/flattop2.jpg',
+                            'static/images/flattop3.jpg'
                         ]
                     },
                     { 
                         id: 'beanie', 
                         name: 'Beanie', 
                         icon: 'fas fa-hat-cowboy',
+                        preview: 'static/images/beanie-preview.jpg',
                         images: [
-                            'static/images/hats/beanies/beanie-1.jpg',
-                            'static/images/hats/beanies/beanie-2.jpg',
-                            'static/images/hats/beanies/beanie-3.jpg'
+                            'static/images/beanie1.jpg',
+                            'static/images/beanie2.jpg',
+                            'static/images/beanie3.jpg',
+                            'static/images/beanie4.jpg'
                         ]
                     },
                     { 
                         id: 'bucket-hat', 
                         name: 'Bucket Hat', 
                         icon: 'fas fa-hat-cowboy',
+                        preview: 'static/images/bucket-hat-preview.jpg',
                         images: [
-                            'static/images/hats/bucket/bucket-1.jpg',
-                            'static/images/hats/bucket/bucket-2.jpg'
+                            'static/images/bucket-hat1.jpg',
+                            'static/images/bucket-hat2.jpg',
+                            'static/images/bucket-hat3.jpg'
                         ]
                     }
                 ]
@@ -2982,27 +3002,32 @@
             'shirts': {
                 'name': 'Shirts',
                 'icon': 'fas fa-tshirt',
+                'preview': 'static/images/shirts-preview.jpg',
                 'subcategories': [
                     { 
                         id: 'tanktop', 
                         name: 'Tank Top', 
                         icon: 'fas fa-tshirt',
+                        preview: 'static/images/tank-top-preview.jpg',
                         images: [
-                            'static/images/shirts/tanks/tank-1.jpg',
-                            'static/images/shirts/tanks/tank-2.jpg',
-                            'static/images/shirts/tanks/tank-3.jpg'
+                            'static/images/tank-top1.jpg',
+                            'static/images/tank-top2.jpg',
+                            'static/images/tank-top3.jpg',
+                            'static/images/tank-top4.jpg'
                         ]
                     },
                     { 
                         id: 't-shirts', 
                         name: 'T-Shirts', 
                         icon: 'fas fa-tshirt',
+                        preview: 'static/images/t-shirt-preview.jpg',
                         images: [
-                            'static/images/shirts/tshirts/tshirt-1.jpg',
-                            'static/images/shirts/tshirts/tshirt-2.jpg',
-                            'static/images/shirts/tshirts/tshirt-3.jpg',
-                            'static/images/shirts/tshirts/tshirt-4.jpg',
-                            'static/images/shirts/tshirts/tshirt-5.jpg'
+                            'static/images/t-shirt1.jpg',
+                            'static/images/t-shirt2.jpg',
+                            'static/images/t-shirt3.jpg',
+                            'static/images/t-shirt4.jpg',
+                            'static/images/t-shirt5.jpg',
+                            'static/images/t-shirt6.jpg'
                         ]
                     }
                 ]
@@ -3010,52 +3035,63 @@
             'accessories': {
                 'name': 'Accessories',
                 'icon': 'fas fa-shopping-bag',
+                'preview': 'static/images/accessories-preview.jpg',
                 'subcategories': [
                     { 
                         id: 'mugs', 
                         name: 'Custom Mugs', 
                         icon: 'fas fa-mug-hot',
+                        preview: 'static/images/mug-preview.jpg',
                         images: [
-                            'static/images/accessories/mugs/mug-1.jpg',
-                            'static/images/accessories/mugs/mug-2.jpg',
-                            'static/images/accessories/mugs/mug-3.jpg'
+                            'static/images/mug1.jpg',
+                            'static/images/mug2.jpg',
+                            'static/images/mug3.jpg',
+                            'static/images/mug4.jpg'
                         ]
                     },
                     { 
                         id: 'phone-cases', 
                         name: 'Phone Cases', 
                         icon: 'fas fa-mobile-alt',
+                        preview: 'static/images/phone-case-preview.jpg',
                         images: [
-                            'static/images/accessories/phone-cases/case-1.jpg',
-                            'static/images/accessories/phone-cases/case-2.jpg'
+                            'static/images/phone-case1.jpg',
+                            'static/images/phone-case2.jpg',
+                            'static/images/phone-case3.jpg'
                         ]
                     },
                     { 
                         id: 'blankets', 
                         name: 'Cozy Blankets', 
                         icon: 'fas fa-bed',
+                        preview: 'static/images/blanket-preview.jpg',
                         images: [
-                            'static/images/accessories/blankets/blanket-1.jpg',
-                            'static/images/accessories/blankets/blanket-2.jpg'
+                            'static/images/blanket1.jpg',
+                            'static/images/blanket2.jpg',
+                            'static/images/blanket3.jpg'
                         ]
                     },
                     { 
                         id: 'tote-bag', 
                         name: 'Tote Bags', 
                         icon: 'fas fa-shopping-bag',
+                        preview: 'static/images/tote-bag-preview.jpg',
                         images: [
-                            'static/images/accessories/totes/tote-1.jpg',
-                            'static/images/accessories/totes/tote-2.jpg',
-                            'static/images/accessories/totes/tote-3.jpg'
+                            'static/images/tote-bag1.jpg',
+                            'static/images/tote-bag2.jpg',
+                            'static/images/tote-bag3.jpg',
+                            'static/images/tote-bag4.jpg'
                         ]
                     },
                     { 
                         id: 'mousepads', 
                         name: 'Mouse Pads', 
                         icon: 'fas fa-mouse',
+                        preview: 'static/images/mousepad-preview.jpg',
                         images: [
-                            'static/images/accessories/mousepads/mousepad-1.jpg',
-                            'static/images/accessories/mousepads/mousepad-2.jpg'
+                            'static/images/mousepad1.jpg',
+                            'static/images/mousepad2.jpg',
+                            'static/images/mousepad3.jpg'
                         ]
                     }
                 ]
@@ -3083,28 +3119,31 @@
             }
         };
 
-        // Category gallery images
+        // Category gallery images (overview images for each main category)
         const CATEGORY_GALLERIES = {
             'sweatshirts': [
-                'static/images/categories/sweatshirts/overview-1.jpg',
-                'static/images/categories/sweatshirts/overview-2.jpg',
-                'static/images/categories/sweatshirts/overview-3.jpg',
-                'static/images/categories/sweatshirts/overview-4.jpg'
+                'static/images/sweatshirts-gallery1.jpg',
+                'static/images/sweatshirts-gallery2.jpg',
+                'static/images/sweatshirts-gallery3.jpg',
+                'static/images/sweatshirts-gallery4.jpg'
             ],
             'hats': [
-                'static/images/categories/hats/overview-1.jpg',
-                'static/images/categories/hats/overview-2.jpg',
-                'static/images/categories/hats/overview-3.jpg'
+                'static/images/hats-gallery1.jpg',
+                'static/images/hats-gallery2.jpg',
+                'static/images/hats-gallery3.jpg',
+                'static/images/hats-gallery4.jpg'
             ],
             'shirts': [
-                'static/images/categories/shirts/overview-1.jpg',
-                'static/images/categories/shirts/overview-2.jpg',
-                'static/images/categories/shirts/overview-3.jpg'
+                'static/images/shirts-gallery1.jpg',
+                'static/images/shirts-gallery2.jpg',
+                'static/images/shirts-gallery3.jpg',
+                'static/images/shirts-gallery4.jpg'
             ],
             'accessories': [
-                'static/images/categories/accessories/overview-1.jpg',
-                'static/images/categories/accessories/overview-2.jpg',
-                'static/images/categories/accessories/overview-3.jpg'
+                'static/images/accessories-gallery1.jpg',
+                'static/images/accessories-gallery2.jpg',
+                'static/images/accessories-gallery3.jpg',
+                'static/images/accessories-gallery4.jpg'
             ]
         };
 
@@ -3575,8 +3614,9 @@
                     </div>
                     <h4>${subcategory.name}</h4>
                     <div class="product-preview" onclick="event.stopPropagation(); openProductGallery('${subcategory.id}', '${categoryId}')">
-                        ${subcategory.images && subcategory.images.length > 0 ? 
-                            `<img src="${subcategory.images[0]}" alt="${subcategory.name} preview" style="width: 100%; height: 100%; object-fit: cover;">` :
+                        ${subcategory.preview ? 
+                            `<img src="${subcategory.preview}" alt="${subcategory.name} preview" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                             <div class="product-placeholder" style="display: none;"><i class="${subcategory.icon}"></i></div>` :
                             `<div class="product-placeholder"><i class="${subcategory.icon}"></i></div>`
                         }
                     </div>
