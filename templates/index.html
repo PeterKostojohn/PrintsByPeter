@@ -314,7 +314,7 @@
         .hero {
             min-height: 100vh;
             background: linear-gradient(135deg, #e8f5e8 0%, #f0f4f8 30%, #e0f2f1 70%, #f1f8e9 100%);
-            padding-top: 90px; /* Increased to prevent badge cutoff */
+            padding-top: 90px;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -698,170 +698,6 @@
             75% { transform: translateY(-45px) rotate(270deg) scale(1.05); }
         }
 
-        /* ===== RESPONSIVE HERO ===== */
-            @media (max-width: 1024px) {
-                .hero-content {
-                    gap: var(--space-2xl);
-                }
-                
-                .hero-visual {
-                    height: 500px;
-                }
-
-                .mockup-item {
-                    padding: var(--space-sm);
-                }
-
-                .mockup-hoodie {
-                    width: 140px;
-                    height: 120px;
-                    top: 18%;
-                    left: 8%;
-                }
-
-                .mockup-hat {
-                    width: 130px;
-                    height: 110px;
-                    top: 8%;
-                    right: 8%;
-                }
-
-                .mockup-mug {
-                    width: 135px;
-                    height: 115px;
-                    bottom: 18%;
-                }
-
-                .mockup-item i {
-                    font-size: 2.2rem;
-                }
-
-                .mockup-item span {
-                    font-size: 0.8rem;
-                }
-            }
-
-            @media (max-width: 768px) {
-                .hero {
-                    padding-top: 120px;
-                    min-height: auto;
-                    padding-bottom: var(--space-3xl);
-                }
-                
-                .hero-content {
-                    grid-template-columns: 1fr;
-                    gap: var(--space-2xl);
-                    text-align: center;
-                }
-                
-                .hero-visual {
-                    height: 350px;
-                    order: -1;
-                }
-                
-                .hero-stats {
-                    justify-content: center;
-                    gap: var(--space-xl);
-                }
-                
-                .hero-buttons {
-                    justify-content: center;
-                }
-                
-                .mockup-hoodie {
-                    top: 20%;
-                    left: 10%;
-                    width: 110px;
-                    height: 95px;
-                }
-                
-                .mockup-hat {
-                    top: 10%;
-                    right: 10%;
-                    width: 105px;
-                    height: 90px;
-                }
-                
-                .mockup-mug {
-                    bottom: 20%;
-                    width: 108px;
-                    height: 93px;
-                }
-
-                .mockup-item i {
-                    font-size: 1.8rem;
-                    margin-bottom: 2px;
-                }
-
-                .mockup-item span {
-                    font-size: 0.7rem;
-                    line-height: 1.1;
-                }
-            }
-
-            @media (max-width: 480px) {
-                .hero-buttons {
-                    flex-direction: column;
-                    align-items: center;
-                    gap: var(--space-md);
-                }
-                
-                .btn {
-                    width: 100%;
-                    max-width: 280px;
-                }
-                
-                .hero-stats {
-                    flex-direction: column;
-                    gap: var(--space-lg);
-                    align-items: center;
-                }
-                
-                .hero-visual {
-                    height: 280px;
-                }
-                
-                .mockup-item {
-                    padding: var(--space-xs);
-                }
-
-                .mockup-hoodie {
-                    width: 90px;
-                    height: 80px;
-                    top: 25%;
-                    left: 15%;
-                }
-                
-                .mockup-hat {
-                    width: 85px;
-                    height: 75px;
-                    top: 15%;
-                    right: 15%;
-                }
-                
-                .mockup-mug {
-                    width: 88px;
-                    height: 78px;
-                    bottom: 25%;
-                }
-                
-                .mockup-item i {
-                    font-size: 1.4rem;
-                    margin-bottom: 1px;
-                }
-                
-                .mockup-item span {
-                    font-size: 0.6rem;
-                    line-height: 1;
-                    padding: 0 2px;
-                }
-
-                .hero-badge {
-                    padding: var(--space-xs) var(--space-md);
-                    font-size: 0.8rem;
-                }
-            }
-
         /* ===== ENHANCED SECTIONS ===== */
         .section {
             padding: var(--space-3xl) 0;
@@ -879,6 +715,10 @@
 
         .about {
             background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 30%, #e8f5e8 70%, #f1f8e9 100%);
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #e0f2f1 0%, #f1f8e9 30%, #f8fafc 70%, #f0f4f8 100%);
         }
 
         .section::before {
@@ -1212,213 +1052,6 @@
         .card-button:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-xl);
-        };
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 4px;
-            height: 60px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 2px;
-            animation: spaceneedle 3s ease-in-out infinite;
-        }
-
-        .space-needle-gradient::after {
-            content: '';
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 30px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: spaceneedle 3s ease-in-out infinite 0.5s;
-        }
-
-        @keyframes spaceneedle {
-            0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.1); }
-        }
-
-        .lake-union-gradient {
-            background: linear-gradient(135deg, #0d47a1 0%, #1976d2 30%, #42a5f5 70%, #90caf9 100%);
-            position: relative;
-        }
-
-        .lake-union-gradient::before {
-            content: '';
-            position: absolute;
-            top: 60%;
-            left: 30%;
-            transform: translate(-50%, -50%);
-            width: 0;
-            height: 0;
-            border-left: 15px solid transparent;
-            border-right: 15px solid transparent;
-            border-bottom: 25px solid rgba(255, 255, 255, 0.4);
-            animation: sailboat 4s ease-in-out infinite;
-        }
-
-        .lake-union-gradient::after {
-            content: '';
-            position: absolute;
-            top: 70%;
-            left: 30%;
-            transform: translate(-50%, -50%);
-            width: 30px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 2px;
-            animation: sailboat 4s ease-in-out infinite 0.2s;
-        }
-
-        @keyframes sailboat {
-            0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) translateX(0); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) translateX(10px); }
-        }
-
-        .culture-gradient {
-            background: linear-gradient(135deg, #4e342e 0%, #6d4c41 30%, #8d6e63 70%, #bcaaa4 100%);
-            position: relative;
-        }
-
-        .culture-gradient::before {
-            content: '';
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 20px;
-            height: 25px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 0 0 10px 10px;
-            animation: coffee 2.5s ease-in-out infinite;
-        }
-
-        .culture-gradient::after {
-            content: '';
-            position: absolute;
-            top: 35%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 24px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 2px;
-            animation: coffee 2.5s ease-in-out infinite 0.3s;
-        }
-
-        @keyframes coffee {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
-        }
-
-        .card-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: var(--transition);
-            backdrop-filter: blur(2px);
-        }
-
-        .collection-card:hover .card-overlay {
-            opacity: 1;
-        }
-
-        .card-icons {
-            display: flex;
-            gap: var(--space-lg);
-            color: white;
-        }
-
-        .card-icons i {
-            font-size: 2.5rem;
-            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-            transition: var(--transition-bounce);
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .card-icons i:nth-child(2) {
-            animation-delay: 0.3s;
-        }
-
-        .card-icons i:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-
-        .card-content {
-            padding: var(--space-xl);
-            position: relative;
-        }
-
-        .card-content h3 {
-            font-size: 1.5rem;
-            font-weight: var(--font-weight-bold);
-            color: var(--text-dark);
-            margin-bottom: var(--space-sm);
-            transition: var(--transition);
-        }
-
-        .collection-card:hover .card-content h3 {
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .card-content p {
-            color: var(--text-medium);
-            margin-bottom: var(--space-lg);
-            line-height: 1.6;
-            font-size: 1rem;
-        }
-
-        .card-button {
-            background: var(--gradient-primary);
-            color: white;
-            border: none;
-            padding: var(--space-md) var(--space-lg);
-            border-radius: var(--radius-md);
-            font-weight: var(--font-weight-semibold);
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition-bounce);
-            width: 100%;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-        }
-
-        .card-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: var(--transition);
-        }
-
-        .card-button:hover::before {
-            left: 100%;
-        }
-
-        .card-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
         }
 
         /* ===== ENHANCED PRODUCTS SECTION ===== */
@@ -1441,6 +1074,7 @@
             border: 2px solid rgba(255, 255, 255, 0.4);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .product-category::before {
@@ -1539,6 +1173,7 @@
             border-radius: var(--radius-sm);
             margin-bottom: var(--space-xs);
             font-weight: var(--font-weight-medium);
+            cursor: pointer;
         }
 
         .product-list li:hover {
@@ -1750,6 +1385,329 @@
             text-shadow: 0 3px 6px rgba(0,0,0,0.4);
         }
 
+        /* ===== CONTACT SECTION ===== */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px) saturate(180%);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-xl);
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid transparent;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .contact-method:hover {
+            background: var(--secondary);
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+            transition: var(--transition-bounce);
+        }
+
+        .contact-method:hover .contact-icon {
+            transform: scale(1.1) rotateY(15deg);
+        }
+
+        .contact-details h4 {
+            font-size: 1.2rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-dark);
+            margin-bottom: var(--space-xs);
+        }
+
+        .contact-details a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: var(--transition);
+        }
+
+        .contact-details a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .contact-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-placeholder {
+            width: 100%;
+            max-width: 450px;
+            height: 400px;
+            background: var(--gradient-accent);
+            border-radius: var(--radius-2xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: var(--shadow-2xl);
+            position: relative;
+            overflow: hidden;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .contact-placeholder::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            animation: shimmer 5s ease-in-out infinite;
+        }
+
+        .contact-placeholder i {
+            font-size: 5rem;
+            margin-bottom: var(--space-lg);
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        }
+
+        .contact-placeholder .title {
+            font-size: 1.8rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-sm);
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-placeholder .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            max-width: 80%;
+        }
+
+        /* ===== IMAGE GALLERY STYLES ===== */
+        .product-preview {
+            width: 100%;
+            height: 200px;
+            background: var(--background-light);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid var(--border-light);
+        }
+
+        .product-preview:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .product-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .product-preview:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-placeholder {
+            color: var(--text-light);
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        /* Gallery Modal */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 3000;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .gallery-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-header {
+            padding: var(--space-lg);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-title {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .gallery-close {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.5rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .gallery-main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-lg);
+            position: relative;
+        }
+
+        .gallery-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1.5rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .gallery-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .gallery-prev {
+            left: var(--space-lg);
+        }
+
+        .gallery-next {
+            right: var(--space-lg);
+        }
+
+        .gallery-thumbnails {
+            padding: var(--space-lg);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: flex;
+            gap: var(--space-md);
+            overflow-x: auto;
+            justify-content: center;
+        }
+
+        .gallery-thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            flex-shrink: 0;
+        }
+
+        .gallery-thumbnail:hover,
+        .gallery-thumbnail.active {
+            border-color: var(--primary);
+            transform: scale(1.1);
+        }
+
+        .gallery-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: var(--radius-sm);
+        }
+
         /* ===== ENHANCED MODALS ===== */
         .modal {
             display: none;
@@ -1770,7 +1728,7 @@
             backdrop-filter: blur(20px) saturate(180%);
             margin: 3% auto;
             width: 95%;
-            max-width: 1000px;
+            max-width: 1100px;
             border-radius: var(--radius-2xl);
             box-shadow: var(--shadow-2xl);
             animation: slideIn 0.4s ease;
@@ -1866,7 +1824,7 @@
 
         .modal-categories, .modal-subcategories {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: var(--space-lg);
         }
 
@@ -1949,6 +1907,17 @@
             z-index: 1;
         }
 
+        /* Product preview in modal */
+        .modal-subcategory .product-preview {
+            height: 120px;
+            margin-bottom: var(--space-sm);
+            border-radius: var(--radius-md);
+        }
+
+        .modal-subcategory .product-preview .product-placeholder {
+            font-size: 2rem;
+        }
+
         /* ===== ANIMATIONS ===== */
         .fade-up {
             opacity: 0;
@@ -2000,202 +1969,6 @@
         .fade-up:nth-child(3) { transition-delay: 300ms; }
         .fade-up:nth-child(4) { transition-delay: 450ms; }
         .fade-up:nth-child(5) { transition-delay: 600ms; }
-
-        /* ===== RESPONSIVE DESIGN ===== */
-        @media (max-width: 1024px) {
-            .container {
-                padding: 0 var(--space-md);
-            }
-            
-            .section {
-                padding: var(--space-2xl) 0;
-            }
-
-            .collections-grid {
-                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-                gap: var(--space-xl);
-            }
-
-            .products-grid {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: var(--space-xl);
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: var(--space-2xl);
-                text-align: center;
-            }
-
-            .features {
-                text-align: left;
-            }
-
-            .visual-placeholder {
-                width: 350px;
-                height: 350px;
-            }
-
-            .card-content {
-                padding: var(--space-xl);
-            }
-
-            .product-category {
-                padding: var(--space-xl);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .collections-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-xl);
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-xl);
-            }
-            
-            .product-category {
-                padding: var(--space-lg);
-            }
-
-            .modal-content {
-                width: 98%;
-                margin: 5% auto;
-            }
-            
-            .modal-header {
-                padding: var(--space-lg);
-            }
-            
-            .modal-body {
-                padding: var(--space-lg);
-            }
-            
-            .modal-categories, .modal-subcategories {
-                grid-template-columns: 1fr;
-                gap: var(--space-md);
-            }
-
-            .visual-placeholder {
-                width: 300px;
-                height: 300px;
-            }
-
-            .visual-placeholder i {
-                font-size: 4.5rem;
-            }
-
-            .visual-placeholder span {
-                font-size: 1.6rem;
-            }
-
-            .card-image {
-                height: 280px;
-            }
-
-            .card-content {
-                padding: var(--space-lg);
-            }
-
-            .category-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 2rem;
-            }
-
-            .feature {
-                padding: var(--space-md);
-            }
-
-            .feature-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .section {
-                padding: var(--space-xl) 0;
-            }
-            
-            .section-header {
-                margin-bottom: var(--space-2xl);
-            }
-            
-            .hero-container {
-                padding: 0 var(--space-md);
-            }
-            
-            .nav-container {
-                padding: var(--space-sm) var(--space-md);
-            }
-
-            .feature {
-                flex-direction: column;
-                text-align: center;
-                gap: var(--space-md);
-                padding: var(--space-sm);
-            }
-
-            .feature:hover {
-                transform: translateY(-5px);
-            }
-
-            .modal-category, .modal-subcategory {
-                padding: var(--space-md);
-            }
-
-            .modal-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-
-            .visual-placeholder {
-                width: 250px;
-                height: 250px;
-            }
-
-            .visual-placeholder i {
-                font-size: 3.5rem;
-            }
-
-            .visual-placeholder span {
-                font-size: 1.3rem;
-            }
-
-            .card-content {
-                padding: var(--space-md);
-            }
-
-            .product-category {
-                padding: var(--space-md);
-            }
-
-            .category-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 1.8rem;
-                margin-bottom: var(--space-lg);
-            }
-
-            .collections-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-lg);
-            }
-
-            .card-image {
-                height: 250px;
-            }
-
-            .card-icons i {
-                font-size: 2.2rem;
-                gap: var(--space-md);
-            }
-        }
 
         /* ===== SUCCESS MODAL STYLES ===== */
         .success-modal {
@@ -2309,6 +2082,265 @@
             transform: scale(1.05);
         }
 
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .section {
+                padding: var(--space-2xl) 0;
+            }
+
+            .collections-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: var(--space-xl);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: var(--space-xl);
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+                text-align: center;
+            }
+
+            .features {
+                text-align: left;
+            }
+
+            .visual-placeholder {
+                width: 350px;
+                height: 350px;
+            }
+
+            .contact-placeholder {
+                height: 350px;
+            }
+
+            .hero-content {
+                gap: var(--space-2xl);
+            }
+            
+            .hero-visual {
+                height: 500px;
+            }
+
+            .modal-categories, .modal-subcategories {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: var(--space-lg);
+                gap: var(--space-sm);
+                border-top: 1px solid var(--border-light);
+                box-shadow: var(--shadow-lg);
+            }
+
+            .nav-menu.active {
+                display: flex;
+                animation: slideInDown 0.3s ease-out;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding-top: 120px;
+                min-height: auto;
+                padding-bottom: var(--space-3xl);
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+                text-align: center;
+            }
+            
+            .hero-visual {
+                height: 350px;
+                order: -1;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+                gap: var(--space-xl);
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .collections-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+            
+            .product-category {
+                padding: var(--space-lg);
+            }
+
+            .modal-content {
+                width: 98%;
+                margin: 5% auto;
+            }
+            
+            .modal-header {
+                padding: var(--space-lg);
+            }
+            
+            .modal-body {
+                padding: var(--space-lg);
+            }
+            
+            .modal-categories, .modal-subcategories {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+
+            .visual-placeholder {
+                width: 300px;
+                height: 300px;
+            }
+
+            .contact-placeholder {
+                height: 300px;
+            }
+
+            .gallery-nav {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .gallery-thumbnails {
+                padding: var(--space-md);
+            }
+
+            .gallery-thumbnail {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section {
+                padding: var(--space-xl) 0;
+            }
+            
+            .section-header {
+                margin-bottom: var(--space-2xl);
+            }
+            
+            .hero-container {
+                padding: 0 var(--space-md);
+            }
+            
+            .nav-container {
+                padding: var(--space-sm) var(--space-md);
+            }
+
+            .feature {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-md);
+                padding: var(--space-sm);
+            }
+
+            .feature:hover {
+                transform: translateY(-5px);
+            }
+
+            .modal-category, .modal-subcategory {
+                padding: var(--space-md);
+            }
+
+            .modal-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+
+            .visual-placeholder {
+                width: 250px;
+                height: 250px;
+            }
+
+            .contact-placeholder {
+                height: 250px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: var(--space-md);
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: var(--space-lg);
+                align-items: center;
+            }
+
+            .contact-methods {
+                gap: var(--space-md);
+            }
+
+            .contact-method {
+                padding: var(--space-md);
+                gap: var(--space-md);
+            }
+
+            .contact-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .gallery-main {
+                padding: var(--space-md);
+            }
+
+            .gallery-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .gallery-prev {
+                left: var(--space-md);
+            }
+
+            .gallery-next {
+                right: var(--space-md);
+            }
+        }
+
         /* ===== KEYFRAME ANIMATIONS ===== */
         @keyframes slideInLeft {
             from {
@@ -2343,6 +2375,23 @@
             }
         }
 
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-8px); }
+        }
+
         /* ===== LOADING ANIMATIONS ===== */
         .hero-text > * {
             animation: slideInUp 0.8s ease-out both;
@@ -2361,11 +2410,13 @@
         .collection-card,
         .product-category,
         .feature,
-        .mockup-item {
+        .mockup-item,
+        .contact-method {
             will-change: transform;
         }
 
-        .modal {
+        .modal,
+        .gallery-modal {
             will-change: opacity;
         }
 
@@ -2392,7 +2443,12 @@
         .nav-link:focus,
         .cta-button:focus,
         .modal-category:focus,
-        .modal-subcategory:focus {
+        .modal-subcategory:focus,
+        .contact-method:focus,
+        .product-category:focus,
+        .gallery-thumbnail:focus,
+        .gallery-nav:focus,
+        .gallery-close:focus {
             outline: 2px solid var(--primary);
             outline-offset: 2px;
         }
@@ -2427,6 +2483,7 @@
                 <li><a href="#collections" class="nav-link">Collections</a></li>
                 <li><a href="#products" class="nav-link">Products</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-cta">
                 <button class="cta-button" onclick="scrollToSection('collections')" aria-label="Shop now">
@@ -2570,11 +2627,16 @@
                 <p class="section-subtitle">Premium quality items available across all collections</p>
             </div>
             <div class="products-grid">
-                <div class="product-category fade-up">
+                <div class="product-category fade-up" data-category="sweatshirts" tabindex="0" role="button" aria-label="View sweatshirts gallery">
                     <div class="category-icon" aria-hidden="true">
                         <i class="fas fa-tshirt"></i>
                     </div>
                     <h3>Sweatshirts</h3>
+                    <div class="product-preview">
+                        <div class="product-placeholder">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                    </div>
                     <ul class="product-list">
                         <li>Premium Hoodies</li>
                         <li>Classic Crewnecks</li>
@@ -2582,11 +2644,16 @@
                     <p class="category-desc">Comfort meets style in our premium sweatshirt collection.</p>
                 </div>
 
-                <div class="product-category fade-up">
+                <div class="product-category fade-up" data-category="hats" tabindex="0" role="button" aria-label="View hats gallery">
                     <div class="category-icon" aria-hidden="true">
                         <i class="fas fa-hat-cowboy"></i>
                     </div>
                     <h3>Hats</h3>
+                    <div class="product-preview">
+                        <div class="product-placeholder">
+                            <i class="fas fa-hat-cowboy"></i>
+                        </div>
+                    </div>
                     <ul class="product-list">
                         <li>Mesh Snapbacks</li>
                         <li>Baseball Caps</li>
@@ -2597,11 +2664,16 @@
                     <p class="category-desc">Top off your look with our diverse headwear selection.</p>
                 </div>
 
-                <div class="product-category fade-up">
+                <div class="product-category fade-up" data-category="shirts" tabindex="0" role="button" aria-label="View shirts gallery">
                     <div class="category-icon" aria-hidden="true">
                         <i class="fas fa-tshirt"></i>
                     </div>
                     <h3>Shirts</h3>
+                    <div class="product-preview">
+                        <div class="product-placeholder">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                    </div>
                     <ul class="product-list">
                         <li>Premium T-Shirts</li>
                         <li>Summer Tank Tops</li>
@@ -2609,11 +2681,16 @@
                     <p class="category-desc">Essential pieces designed for year-round comfort.</p>
                 </div>
 
-                <div class="product-category fade-up">
+                <div class="product-category fade-up" data-category="accessories" tabindex="0" role="button" aria-label="View accessories gallery">
                     <div class="category-icon" aria-hidden="true">
                         <i class="fas fa-shopping-bag"></i>
                     </div>
                     <h3>Accessories</h3>
+                    <div class="product-preview">
+                        <div class="product-placeholder">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                    </div>
                     <ul class="product-list">
                         <li>Custom Mugs</li>
                         <li>Phone Cases</li>
@@ -2681,6 +2758,79 @@
         </div>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header fade-up">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Ready to bring your Seattle spirit to life? We'd love to hear from you!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info fade-left">
+                    <h3>Contact Information</h3>
+                    <div class="contact-methods">
+                        <div class="contact-method" tabindex="0" role="button" aria-label="Email Peter">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Peter</h4>
+                                <a href="mailto:peterkostojohn@gmail.com">peterkostojohn@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method" tabindex="0" role="button" aria-label="Email Jack">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email Jack</h4>
+                                <a href="mailto:jackodseattle@gmail.com">jackodseattle@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method" tabindex="0" role="button" aria-label="Call Peter">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Call Peter</h4>
+                                <a href="tel:+12063006614">(206) 300-6614</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method" tabindex="0" role="button" aria-label="Call Jack">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Call Jack</h4>
+                                <a href="tel:+12064876373">(206) 487-6373</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method" tabindex="0" role="button" aria-label="Our location">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Based in Seattle</h4>
+                                <span>Pacific Northwest, USA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-visual fade-right">
+                    <div class="contact-placeholder">
+                        <i class="fas fa-handshake" aria-hidden="true"></i>
+                        <div class="title">Let's Connect</div>
+                        <div class="subtitle">We're here to help bring your vision to life with custom Seattle-inspired designs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Modal for Category Selection -->
     <div id="category-modal" class="modal" role="dialog" aria-labelledby="category-modal-title" aria-hidden="true">
         <div class="modal-content">
@@ -2717,50 +2867,197 @@
         </div>
     </div>
 
+    <!-- Image Gallery Modal -->
+    <div id="gallery-modal" class="gallery-modal" role="dialog" aria-labelledby="gallery-title" aria-hidden="true">
+        <div class="gallery-content">
+            <div class="gallery-header">
+                <h2 id="gallery-title" class="gallery-title">Product Gallery</h2>
+                <button class="gallery-close" aria-label="Close gallery">&times;</button>
+            </div>
+            <div class="gallery-main">
+                <img id="gallery-image" class="gallery-image" src="" alt="Product image">
+                <button class="gallery-nav gallery-prev" aria-label="Previous image">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-nav gallery-next" aria-label="Next image">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <div class="gallery-thumbnails" id="gallery-thumbnails">
+                <!-- Thumbnails will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
     <script>
         // ===== GLOBAL VARIABLES =====
         let selectedCollection = null;
         let selectedCategory = null;
         let lastScrollY = window.scrollY;
+        let currentGalleryImages = [];
+        let currentImageIndex = 0;
 
-        // Categories and subcategories data
+        // Categories and subcategories data with image paths
         const CATEGORIES = {
             'sweatshirts': {
                 'name': 'Sweatshirts',
                 'icon': 'fas fa-tshirt',
                 'subcategories': [
-                    { id: 'hoodies', name: 'Premium Hoodies', icon: 'fas fa-tshirt' },
-                    { id: 'crewnecks', name: 'Classic Crewnecks', icon: 'fas fa-tshirt' }
+                    { 
+                        id: 'hoodies', 
+                        name: 'Premium Hoodies', 
+                        icon: 'fas fa-tshirt',
+                        images: [
+                            'static/images/sweatshirts/hoodies/hoodie-1.jpg',
+                            'static/images/sweatshirts/hoodies/hoodie-2.jpg',
+                            'static/images/sweatshirts/hoodies/hoodie-3.jpg',
+                            'static/images/sweatshirts/hoodies/hoodie-4.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'crewnecks', 
+                        name: 'Classic Crewnecks', 
+                        icon: 'fas fa-tshirt',
+                        images: [
+                            'static/images/sweatshirts/crewnecks/crewneck-1.jpg',
+                            'static/images/sweatshirts/crewnecks/crewneck-2.jpg',
+                            'static/images/sweatshirts/crewnecks/crewneck-3.jpg'
+                        ]
+                    }
                 ]
             },
             'hats': {
                 'name': 'Hats',
                 'icon': 'fas fa-hat-cowboy',
                 'subcategories': [
-                    { id: 'mesh-snapback', name: 'Mesh Snapback', icon: 'fas fa-hat-cowboy' },
-                    { id: 'baseball-cap', name: 'Baseball Cap', icon: 'fas fa-hat-cowboy' },
-                    { id: 'flattop', name: 'Flattop', icon: 'fas fa-hat-cowboy' },
-                    { id: 'beanie', name: 'Beanie', icon: 'fas fa-hat-cowboy' },
-                    { id: 'bucket-hat', name: 'Bucket Hat', icon: 'fas fa-hat-cowboy' }
+                    { 
+                        id: 'mesh-snapback', 
+                        name: 'Mesh Snapback', 
+                        icon: 'fas fa-hat-cowboy',
+                        images: [
+                            'static/images/hats/snapbacks/snapback-1.jpg',
+                            'static/images/hats/snapbacks/snapback-2.jpg',
+                            'static/images/hats/snapbacks/snapback-3.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'baseball-cap', 
+                        name: 'Baseball Cap', 
+                        icon: 'fas fa-hat-cowboy',
+                        images: [
+                            'static/images/hats/baseball/baseball-1.jpg',
+                            'static/images/hats/baseball/baseball-2.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'flattop', 
+                        name: 'Flattop', 
+                        icon: 'fas fa-hat-cowboy',
+                        images: [
+                            'static/images/hats/flattop/flattop-1.jpg',
+                            'static/images/hats/flattop/flattop-2.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'beanie', 
+                        name: 'Beanie', 
+                        icon: 'fas fa-hat-cowboy',
+                        images: [
+                            'static/images/hats/beanies/beanie-1.jpg',
+                            'static/images/hats/beanies/beanie-2.jpg',
+                            'static/images/hats/beanies/beanie-3.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'bucket-hat', 
+                        name: 'Bucket Hat', 
+                        icon: 'fas fa-hat-cowboy',
+                        images: [
+                            'static/images/hats/bucket/bucket-1.jpg',
+                            'static/images/hats/bucket/bucket-2.jpg'
+                        ]
+                    }
                 ]
             },
             'shirts': {
                 'name': 'Shirts',
                 'icon': 'fas fa-tshirt',
                 'subcategories': [
-                    { id: 'tanktop', name: 'Tank Top', icon: 'fas fa-tshirt' },
-                    { id: 't-shirts', name: 'T-Shirts', icon: 'fas fa-tshirt' }
+                    { 
+                        id: 'tanktop', 
+                        name: 'Tank Top', 
+                        icon: 'fas fa-tshirt',
+                        images: [
+                            'static/images/shirts/tanks/tank-1.jpg',
+                            'static/images/shirts/tanks/tank-2.jpg',
+                            'static/images/shirts/tanks/tank-3.jpg'
+                        ]
+                    },
+                    { 
+                        id: 't-shirts', 
+                        name: 'T-Shirts', 
+                        icon: 'fas fa-tshirt',
+                        images: [
+                            'static/images/shirts/tshirts/tshirt-1.jpg',
+                            'static/images/shirts/tshirts/tshirt-2.jpg',
+                            'static/images/shirts/tshirts/tshirt-3.jpg',
+                            'static/images/shirts/tshirts/tshirt-4.jpg',
+                            'static/images/shirts/tshirts/tshirt-5.jpg'
+                        ]
+                    }
                 ]
             },
             'accessories': {
                 'name': 'Accessories',
                 'icon': 'fas fa-shopping-bag',
                 'subcategories': [
-                    { id: 'mugs', name: 'Custom Mugs', icon: 'fas fa-mug-hot' },
-                    { id: 'phone-cases', name: 'Phone Cases', icon: 'fas fa-mobile-alt' },
-                    { id: 'blankets', name: 'Cozy Blankets', icon: 'fas fa-bed' },
-                    { id: 'tote-bag', name: 'Tote Bags', icon: 'fas fa-shopping-bag' },
-                    { id: 'mousepads', name: 'Mouse Pads', icon: 'fas fa-mouse' }
+                    { 
+                        id: 'mugs', 
+                        name: 'Custom Mugs', 
+                        icon: 'fas fa-mug-hot',
+                        images: [
+                            'static/images/accessories/mugs/mug-1.jpg',
+                            'static/images/accessories/mugs/mug-2.jpg',
+                            'static/images/accessories/mugs/mug-3.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'phone-cases', 
+                        name: 'Phone Cases', 
+                        icon: 'fas fa-mobile-alt',
+                        images: [
+                            'static/images/accessories/phone-cases/case-1.jpg',
+                            'static/images/accessories/phone-cases/case-2.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'blankets', 
+                        name: 'Cozy Blankets', 
+                        icon: 'fas fa-bed',
+                        images: [
+                            'static/images/accessories/blankets/blanket-1.jpg',
+                            'static/images/accessories/blankets/blanket-2.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'tote-bag', 
+                        name: 'Tote Bags', 
+                        icon: 'fas fa-shopping-bag',
+                        images: [
+                            'static/images/accessories/totes/tote-1.jpg',
+                            'static/images/accessories/totes/tote-2.jpg',
+                            'static/images/accessories/totes/tote-3.jpg'
+                        ]
+                    },
+                    { 
+                        id: 'mousepads', 
+                        name: 'Mouse Pads', 
+                        icon: 'fas fa-mouse',
+                        images: [
+                            'static/images/accessories/mousepads/mousepad-1.jpg',
+                            'static/images/accessories/mousepads/mousepad-2.jpg'
+                        ]
+                    }
                 ]
             }
         };
@@ -2786,12 +3083,40 @@
             }
         };
 
+        // Category gallery images
+        const CATEGORY_GALLERIES = {
+            'sweatshirts': [
+                'static/images/categories/sweatshirts/overview-1.jpg',
+                'static/images/categories/sweatshirts/overview-2.jpg',
+                'static/images/categories/sweatshirts/overview-3.jpg',
+                'static/images/categories/sweatshirts/overview-4.jpg'
+            ],
+            'hats': [
+                'static/images/categories/hats/overview-1.jpg',
+                'static/images/categories/hats/overview-2.jpg',
+                'static/images/categories/hats/overview-3.jpg'
+            ],
+            'shirts': [
+                'static/images/categories/shirts/overview-1.jpg',
+                'static/images/categories/shirts/overview-2.jpg',
+                'static/images/categories/shirts/overview-3.jpg'
+            ],
+            'accessories': [
+                'static/images/categories/accessories/overview-1.jpg',
+                'static/images/categories/accessories/overview-2.jpg',
+                'static/images/categories/accessories/overview-3.jpg'
+            ]
+        };
+
         // DOM Elements
         const navbar = document.querySelector('.navbar');
         const collectionCards = document.querySelectorAll('.collection-card');
+        const productCategories = document.querySelectorAll('.product-category');
         const categoryModal = document.getElementById('category-modal');
         const subcategoryModal = document.getElementById('subcategory-modal');
+        const galleryModal = document.getElementById('gallery-modal');
         const closeModalBtns = document.querySelectorAll('.close-modal');
+        const galleryClose = document.querySelector('.gallery-close');
         const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
@@ -2800,11 +3125,14 @@
             initializeScrollAnimations();
             initializeNavigation();
             initializeCollectionCards();
+            initializeProductCategories();
             initializeModals();
+            initializeGallery();
             initializeSmoothScrolling();
             initializeParallaxEffects();
             initializeMobileMenu();
             initializeAccessibility();
+            initializeContactMethods();
         });
 
         // ===== ENHANCED SCROLL ANIMATIONS =====
@@ -2955,11 +3283,43 @@
             }
         }
 
+        // ===== CONTACT METHODS =====
+        function initializeContactMethods() {
+            document.querySelectorAll('.contact-method').forEach(method => {
+                method.addEventListener('click', function() {
+                    const link = this.querySelector('a');
+                    if (link) {
+                        link.click();
+                    }
+                });
+
+                method.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const link = this.querySelector('a');
+                        if (link) {
+                            link.click();
+                        }
+                    }
+                });
+            });
+        }
+
         // ===== ACCESSIBILITY =====
         function initializeAccessibility() {
             // Add keyboard navigation for collection cards
             collectionCards.forEach(card => {
                 card.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // Add keyboard navigation for product categories
+            productCategories.forEach(category => {
+                category.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter' || e.key === ' ') {
                         e.preventDefault();
                         this.click();
@@ -3009,11 +3369,34 @@
                 });
             });
 
-            [categoryModal, subcategoryModal].forEach(modal => {
+            [categoryModal, subcategoryModal, galleryModal].forEach(modal => {
                 if (modal) {
                     observer.observe(modal, { attributes: true });
                 }
             });
+        }
+
+        // ===== PRODUCT CATEGORIES =====
+        function initializeProductCategories() {
+            productCategories.forEach(category => {
+                category.addEventListener('click', function() {
+                    const categoryId = this.dataset.category;
+                    openCategoryGallery(categoryId);
+                });
+            });
+        }
+
+        function openCategoryGallery(categoryId) {
+            const category = CATEGORIES[categoryId];
+            const images = CATEGORY_GALLERIES[categoryId] || [];
+            
+            if (images.length > 0) {
+                openGallery(`${category.name} Gallery`, images);
+            } else {
+                // Fallback: show category modal for product selection
+                selectedCollection = 'collection1'; // Default collection
+                openCategoryModal('collection1');
+            }
         }
 
         // ===== COLLECTION CARDS =====
@@ -3191,6 +3574,15 @@
                         <i class="${subcategory.icon}"></i>
                     </div>
                     <h4>${subcategory.name}</h4>
+                    <div class="product-preview" onclick="event.stopPropagation(); openProductGallery('${subcategory.id}', '${categoryId}')">
+                        ${subcategory.images && subcategory.images.length > 0 ? 
+                            `<img src="${subcategory.images[0]}" alt="${subcategory.name} preview" style="width: 100%; height: 100%; object-fit: cover;">` :
+                            `<div class="product-placeholder"><i class="${subcategory.icon}"></i></div>`
+                        }
+                    </div>
+                    <p style="font-size: 0.9rem; color: var(--text-medium); margin-top: 0.5rem;">
+                        ${subcategory.images ? subcategory.images.length : 0} images available
+                    </p>
                 </div>
             `).join('');
             
@@ -3220,6 +3612,15 @@
                     }
                 });
             });
+        }
+
+        function openProductGallery(subcategoryId, categoryId) {
+            const category = CATEGORIES[categoryId];
+            const subcategory = category.subcategories.find(sub => sub.id === subcategoryId);
+            
+            if (subcategory && subcategory.images && subcategory.images.length > 0) {
+                openGallery(`${subcategory.name} Gallery`, subcategory.images);
+            }
         }
 
         function selectSubcategory(subcategoryElement, category) {
@@ -3273,6 +3674,150 @@
             document.body.insertAdjacentHTML('beforeend', successHtml);
         }
 
+        // ===== IMAGE GALLERY =====
+        function initializeGallery() {
+            // Gallery close button
+            galleryClose.addEventListener('click', function() {
+                closeGallery();
+            });
+
+            // Gallery navigation
+            document.querySelector('.gallery-prev').addEventListener('click', function() {
+                navigateGallery(-1);
+            });
+
+            document.querySelector('.gallery-next').addEventListener('click', function() {
+                navigateGallery(1);
+            });
+
+            // Keyboard navigation for gallery
+            document.addEventListener('keydown', function(e) {
+                if (galleryModal.style.display === 'block') {
+                    switch(e.key) {
+                        case 'Escape':
+                            closeGallery();
+                            break;
+                        case 'ArrowLeft':
+                            navigateGallery(-1);
+                            break;
+                        case 'ArrowRight':
+                            navigateGallery(1);
+                            break;
+                    }
+                }
+            });
+
+            // Click outside to close gallery
+            galleryModal.addEventListener('click', function(e) {
+                if (e.target === galleryModal) {
+                    closeGallery();
+                }
+            });
+        }
+
+        function openGallery(title, images) {
+            currentGalleryImages = images;
+            currentImageIndex = 0;
+            
+            document.getElementById('gallery-title').textContent = title;
+            updateGalleryImage();
+            renderGalleryThumbnails();
+            
+            galleryModal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+            galleryModal.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeGallery() {
+            galleryModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            galleryModal.setAttribute('aria-hidden', 'true');
+            currentGalleryImages = [];
+            currentImageIndex = 0;
+        }
+
+        function navigateGallery(direction) {
+            if (currentGalleryImages.length === 0) return;
+            
+            currentImageIndex += direction;
+            
+            if (currentImageIndex >= currentGalleryImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = currentGalleryImages.length - 1;
+            }
+            
+            updateGalleryImage();
+            updateActiveThumbnail();
+        }
+
+        function updateGalleryImage() {
+            if (currentGalleryImages.length === 0) return;
+            
+            const galleryImage = document.getElementById('gallery-image');
+            const currentImage = currentGalleryImages[currentImageIndex];
+            
+            // Add loading animation
+            galleryImage.style.opacity = '0.5';
+            
+            // Create new image to preload
+            const img = new Image();
+            img.onload = function() {
+                galleryImage.src = currentImage;
+                galleryImage.alt = `Gallery image ${currentImageIndex + 1} of ${currentGalleryImages.length}`;
+                galleryImage.style.opacity = '1';
+            };
+            img.onerror = function() {
+                // Fallback if image fails to load
+                galleryImage.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9IjAuM2VtIj5JbWFnZSBub3QgYXZhaWxhYmxlPC90ZXh0Pjwvc3ZnPg==';
+                galleryImage.alt = 'Image not available';
+                galleryImage.style.opacity = '1';
+            };
+            img.src = currentImage;
+        }
+
+        function renderGalleryThumbnails() {
+            const thumbnailsContainer = document.getElementById('gallery-thumbnails');
+            
+            thumbnailsContainer.innerHTML = currentGalleryImages.map((image, index) => `
+                <div class="gallery-thumbnail ${index === currentImageIndex ? 'active' : ''}" 
+                     data-index="${index}" 
+                     onclick="selectGalleryImage(${index})"
+                     tabindex="0"
+                     role="button"
+                     aria-label="View image ${index + 1}">
+                    <img src="${image}" alt="Thumbnail ${index + 1}" loading="lazy">
+                </div>
+            `).join('');
+
+            // Add keyboard navigation for thumbnails
+            thumbnailsContainer.querySelectorAll('.gallery-thumbnail').forEach(thumbnail => {
+                thumbnail.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const index = parseInt(this.dataset.index);
+                        selectGalleryImage(index);
+                    }
+                });
+            });
+        }
+
+        function selectGalleryImage(index) {
+            currentImageIndex = index;
+            updateGalleryImage();
+            updateActiveThumbnail();
+        }
+
+        function updateActiveThumbnail() {
+            document.querySelectorAll('.gallery-thumbnail').forEach((thumbnail, index) => {
+                if (index === currentImageIndex) {
+                    thumbnail.classList.add('active');
+                } else {
+                    thumbnail.classList.remove('active');
+                }
+            });
+        }
+
         // ===== ENHANCED MODALS =====
         function initializeModals() {
             // Close button handlers
@@ -3299,6 +3844,7 @@
                 if (e.key === 'Escape') {
                     closeModal(categoryModal);
                     closeModal(subcategoryModal);
+                    closeGallery();
                     // Close success modal if present
                     const successModal = document.querySelector('.success-modal');
                     if (successModal) {
@@ -3408,6 +3954,15 @@
                 collection: collection,
                 category: category,
                 product: product,
+                timestamp: new Date().toISOString()
+            });
+        }
+
+        // Track gallery views
+        function trackGalleryView(galleryType, galleryName) {
+            trackEvent('gallery_viewed', {
+                type: galleryType,
+                name: galleryName,
                 timestamp: new Date().toISOString()
             });
         }
